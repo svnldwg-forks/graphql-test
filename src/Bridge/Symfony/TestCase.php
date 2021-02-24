@@ -2,6 +2,7 @@
 
 namespace KunicMarko\GraphQLTest\Bridge\Symfony;
 
+use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use KunicMarko\GraphQLTest\Bridge\TestCaseTrait;
 
@@ -12,6 +13,8 @@ class TestCase extends WebTestCase
 {
     use TestCaseTrait;
 
+    protected KernelBrowser $client;
+
     private function call(
         string $method,
         string $uri,
@@ -20,7 +23,10 @@ class TestCase extends WebTestCase
         array $files = [],
         array $headers = []
     ) {
-        $client = static::createClient();
+        if (!isset($this->client)) {
+            $this->client = static::createClient();
+        }
+        $client = $this->client;
         $cookieJar = $client->getCookieJar();
 
         foreach ($cookies as $cookie) {
