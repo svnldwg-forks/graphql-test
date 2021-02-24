@@ -3,7 +3,7 @@ GraphQL Test Case
 
 Makes testing your GraphQL queries and mutations easier.
 
-Support for Symfony, Lumen and Laravel.
+Support for Symfony.
 
 [![PHP Version](https://img.shields.io/badge/php-%5E7.1-blue.svg)](https://img.shields.io/badge/php-%5E7.1-blue.svg)
 [![Latest Stable Version](https://poser.pugx.org/kunicmarko/graphql-test/v/stable)](https://packagist.org/packages/kunicmarko/graphql-test)
@@ -37,8 +37,6 @@ Depending on your framework, extend the correct `TestCase`:
 
 ```php
 use KunicMarko\GraphQLTest\Bridge\Symfony\TestCase;
-use KunicMarko\GraphQLTest\Bridge\Lumen\TestCase;
-use KunicMarko\GraphQLTest\Bridge\Laravel\TestCase;
 ```
 
 > Everything you see in the next snippets is the same for all Test Cases.
